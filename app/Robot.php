@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Robot extends Model
 {
+    protected $fillable = ['user_id', 'model', 'zone'];
+
     /**
      * One to one relation with User.
      *
