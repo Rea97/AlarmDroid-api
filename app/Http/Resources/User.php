@@ -16,9 +16,7 @@ class User extends JsonResource
     {
         return [
             'id' => $this->id,
-            $this->mergeWhen($request->route()->getName() !== 'robots.show', [
-                'robot' => $this->whenLoaded('robot', new Robot($this->robot), $this->robot_id),
-            ]),
+            'robot_id' => $this->robot_id,
             'name' => $this->name,
             'email' => $this->email,
             'created_at' => (string) $this->created_at,
