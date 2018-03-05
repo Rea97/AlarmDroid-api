@@ -26,4 +26,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * One to one relation with Robot.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function robot()
+    {
+        return $this->hasOne(Robot::class);
+    }
 }
