@@ -19,4 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/login', 'ApiLoginController@login');
 
+// Robot routes
 Route::get('/robots/{robot}', 'RobotController@show')->name('robots.show');
+
+// Alerts routes
+Route::get('/alerts', 'AlertController@index')->name('alerts.index');
