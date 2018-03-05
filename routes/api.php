@@ -24,3 +24,4 @@ Route::get('/robots/{robot}', 'RobotController@show')->name('robots.show');
 
 // Alerts routes
 Route::get('/alerts', 'AlertController@index')->name('alerts.index');
+Route::get('/alerts/{alert}', 'AlertController@show')->name('alerts.show');

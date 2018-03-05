@@ -19,4 +19,9 @@ class AlertController extends Controller
 
         return AlertResource::collection($alerts);
     }
+
+    public function show(Alert $alert)
+    {
+        return new AlertResource($alert);
+    }
 }
