@@ -25,5 +25,6 @@ Route::middleware('auth:api')->group(function () {
 
 // Alerts routes
     Route::get('/alerts', 'AlertController@index')->name('alerts.index');
+    Route::post('/alerts', 'AlertController@store')->name('alerts.store');
     Route::get('/alerts/{alert}', 'AlertController@show')->name('alerts.show');
 });

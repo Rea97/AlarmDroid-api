@@ -63,6 +63,33 @@ con su respectivo robot creador de dicha alerta, tal como el siguiente:
 }
 ```
 
+### Alerta (/api/alerts) [POST]
+Este endpoint crea una nueva alerta y la retorna como un objeto json que contiene la alerta
+con su respectivo robot creador, tal como el siguiente:
+
+```json
+{
+  "data": {
+    "id": 1,
+    "robot": {
+      "id": 1,
+      "user_id": 1,
+      "model": "reprehenderit",
+      "zone": "recusandae qui recusandae",
+      "created_at": "2018-03-06 03:47:00"
+    },
+    "type": "laudantium",
+    "message": "Est ab similique voluptatem. Porro aut rerum quia quasi cupiditate et. Eum molestias molestiae libero odit.",
+    "created_at": "2018-03-06 03:47:00"
+  }
+}
+```
+
+Parámetros:
+- robot_id: required, integer
+- type: required, string, max:100
+- message: required, string
+
 ### Robot (/api/robots/{id}) [GET]
 Este endpoint retorna un objeto json que contiene solo un robot
 con su respectivo usuario, tal como el siguiente:

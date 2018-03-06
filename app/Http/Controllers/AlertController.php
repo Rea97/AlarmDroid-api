@@ -24,4 +24,18 @@ class AlertController extends Controller
     {
         return new AlertResource($alert);
     }
+
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'robot_id' => 'required|integer',
+            'type' => 'required|string|max:100',
+            'message' => 'required|string',
+        ]);
+
+        $alert = new Alert($data);
+        $alert->save();
+
+        return new AlertResource($alert);
+    }
 }
