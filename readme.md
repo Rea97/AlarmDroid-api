@@ -13,6 +13,22 @@ Parámetros:
 - email: string, max:255
 - password: string, max,255
 
+### Usuario (/api/user) [GET]
+Retorna la información del usuario autenticado.
+
+```json
+{
+  "data": {
+    "id": 1,
+    "name": "Oziel Martínez",
+    "email": "oziel@alarmdroid.com",
+    "created_at": "2018-03-06 03:47:00",
+    "updated_at": "2018-03-06 03:47:00",
+    "api_token": "xUjK49cviZHXmW1exZa8jC0Rm9fne82I3inr0oKW8pSH3WupfiuCa0v4i99S"
+  } 
+}
+```
+
 ### Alertas (/api/alerts) [GET]
 Este endpoint retorna un objeto json con un arreglo de alertas como el siguiente:
 
