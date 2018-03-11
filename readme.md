@@ -20,12 +20,11 @@ Retorna la información del usuario autenticado.
 {
   "data": {
     "id": 1,
+    "robot_id": 1,
     "name": "Oziel Martínez",
     "email": "oziel@alarmdroid.com",
-    "created_at": "2018-03-06 03:47:00",
-    "updated_at": "2018-03-06 03:47:00",
-    "api_token": "xUjK49cviZHXmW1exZa8jC0Rm9fne82I3inr0oKW8pSH3WupfiuCa0v4i99S"
-  } 
+    "created_at": "2018-03-06 03:47:00"
+  }
 }
 ```
 
