@@ -11,10 +11,11 @@ class AlertController extends Controller
     public function index(Request $request)
     {
         $search = $request->query('search');
-        $alerts = Alert::where('robot_id', $request->user()->robot->id)->paginate(5);
+        $limit = $request->query('limit', 5);
+        $alerts = Alert::where('robot_id', $request->user()->robot->id)->orderBy('created_at', 'desc')->take($limit)->get();
 
         if ($request->filled('search')) {
-            $alerts = Alert::where('type', 'LIKE', "%{$search}%")->orWhere('message', 'LIKE', "%{$search}%")->paginate(5);
+            $alerts = Alert::where('type', 'LIKE', "%{$search}%")->orWhere('message', 'LIKE', "%{$search}%")->take($limit)->get();
         }
 
         return AlertResource::collection($alerts);
