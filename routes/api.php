@@ -23,6 +23,9 @@ Route::middleware('auth:api')->group(function () {
     // Robot routes
     Route::get('/robots/{robot}', 'RobotController@show')->name('robots.show');
 
+    Route::get('/users/robots/status', 'RobotStatusController@index')->name('robots.status.index');
+    Route::put('/users/robots/status', 'RobotStatusController@update')->name('robots.status.update');
+
 // Alerts routes
     Route::get('/alerts', 'AlertController@index')->name('alerts.index');
     Route::post('/alerts', 'AlertController@store')->name('alerts.store');
