@@ -27,6 +27,7 @@ class ApiLoginController extends Controller
         // User login successful
         return response()->json([
             'api_token' => $user->api_token,
+            'id' => $user->id,
         ]);
     }
 }
