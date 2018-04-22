@@ -5,9 +5,20 @@ namespace App\Http\Controllers;
 use App\Alert;
 use Illuminate\Http\Request;
 use App\Http\Resources\Alert as AlertResource;
+use Pusher\PushNotifications\PushNotifications;
 
 class AlertController extends Controller
 {
+    private $pushNotifications;
+
+    public function __construct()
+    {
+        $this->pushNotifications = new PushNotifications([
+            'instanceId' => config('broadcasting.connections.pusher.push_notifications.instance_id'),
+            'secretKey' => config('broadcasting.connections.pusher.push_notifications.secret_key'),
+        ]);
+    }
+
     public function index(Request $request)
     {
         $search = $request->query('search');
@@ -39,7 +50,21 @@ class AlertController extends Controller
         ]);
 
         $alert = new Alert($data);
-        $alert->save();
+        $saved = $alert->save();
+
+        if ($saved) {
+            $this->pushNotifications->publish(
+                ['user-alerts-' . $request->user()->id],
+                [
+                    "fcm" => [
+                        "notification" => [
+                            "title" => "Nueva alerta!",
+                            "body" => "Tu robot ha generado una nueva alerta de tipo '{$alert->type}'",
+                        ]
+                    ],
+                ]
+            );
+        }
 
         return new AlertResource($alert);
     }
