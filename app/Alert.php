@@ -31,7 +31,7 @@ class Alert extends Model
     {
         return self::create([
             'robot_id' => $robot->id,
-            'type' => 'Alta concentración de gas',
+            'type' => 'Gases detectados',
             'message' => 'Aut molestias ut ut incidunt eligendi. Quod unde non recusandae consequatur tempore suscipit totam et. Soluta non autem pariatur ut. Odio non eveniet itaque deleniti possimus consequuntur non.',
         ]);
     }
