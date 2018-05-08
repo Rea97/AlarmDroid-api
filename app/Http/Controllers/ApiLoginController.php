@@ -28,6 +28,7 @@ class ApiLoginController extends Controller
         return response()->json([
             'api_token' => $user->api_token,
             'id' => $user->id,
+            'robot_id' => $user->robot->id,
         ]);
     }
 }

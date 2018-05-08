@@ -26,8 +26,11 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/users/robots/status', 'RobotStatusController@index')->name('robots.status.index');
     Route::put('/users/robots/status', 'RobotStatusController@update')->name('robots.status.update');
 
-// Alerts routes
+    // Alerts routes
     Route::get('/alerts', 'AlertController@index')->name('alerts.index');
     Route::post('/alerts', 'AlertController@store')->name('alerts.store');
-    Route::get('/alerts/{alert}', 'AlertController@show')->name('alerts.show');
+    Route::get('/alerts/{alert}', 'AlertController@show')->name('alerts.show')->where('alert', '[0-9]+');
+
+    // Fixture alerts
+    Route::get('/alerts/fixture', 'FixtureAlertController@store')->name('alerts.fixture.store');
 });

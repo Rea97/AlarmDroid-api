@@ -39,6 +39,11 @@ return [
                 'cluster' => env('PUSHER_APP_CLUSTER'),
                 'encrypted' => true,
             ],
+
+            'push_notifications' => [
+                'instance_id' => env('PUSHER_PUSH_NOTIFICATIONS_INSTANCE_ID'),
+                'secret_key' => env('PUSHER_PUSH_NOTIFICATIONS_SECRET_KEY'),
+            ],
         ],
 
         'redis' => [
