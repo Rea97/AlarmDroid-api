@@ -40,7 +40,7 @@ class Alert extends Model
     {
         return self::create([
             'robot_id' => $robot->id,
-            'type' => 'Temperatura inadecuada',
+            'type' => 'Mala temperatura',
             'message' => 'Atención: Se ha detectado un cambio en la temperatura del ambiente, los cambios bruscos de temperatura ya sean altas o bajas temperaturas pueden afectar a las personas desde irritaciones en la piel, dificultades para moverse, mareos o inclusive puede llegar a afectar al sistema inmune. Se recomienda tener cuidado con los cambios de temperatura.',
         ]);
     }
